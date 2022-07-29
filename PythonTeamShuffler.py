@@ -14,10 +14,12 @@ class PythonTeamShuffler():
 			try:
 				if args[0] == 'exit':
 					return
-				if args[0] == 'shuffle':
+				elif args[0] == 'shuffle':
 					self.shuffle()
-				if args[0] == 'load':
+				elif args[0] == 'load':
 					self.load_data(args[1])
+				else:
+					raise RuntimeError(f'Command not recognised: {args[0]}')
 			except Exception as x:
 				print(f'{type(x)}: {x}')
 
