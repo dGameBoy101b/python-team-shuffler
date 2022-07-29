@@ -19,7 +19,7 @@ class PythonTeamShuffler():
 				if args[0] == 'load':
 					self.load_data(args[1])
 			except Exception as x:
-				print(f'Error: {x}')
+				print(f'{type(x)}: {x}')
 
 	def load_data(self, path:str):
 		'''Load member and leader information from a file'''
@@ -66,4 +66,8 @@ class PythonTeamShuffler():
 		return
 
 if __name__ == '__main__':
-	exit(PythonTeamShuffler().interactive_loop())
+	try:
+		exit_code = PythonTeamShuffler().interactive_loop()
+	except Exception as x:
+		exit_code = x
+	exit(exit_code)
